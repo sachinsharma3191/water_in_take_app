@@ -1,11 +1,11 @@
-const {db} = require('@vercel/postgres');
-const {
-    users,
-} = require('../app/lib/placeholder-data.ts');
-const bcrypt = require('bcrypt');
+import {db, VercelPoolClient} from '@vercel/postgres';
+import {users} from '@/app/lib/placeholder-data';
+import dotenv from 'dotenv';
+import bcrypt from 'bcrypt';
 
+dotenv.config()
 
-async function seedUsers(client) {
+async function seedUsers(client:  VercelPoolClient) {
     try {
         await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
         // Create the "invoices" table if it doesn't exist
@@ -49,7 +49,7 @@ async function seedUsers(client) {
 }
 
 
-async function seedMeasuringUnitEnum(client) {
+async function seedMeasuringUnitEnum(client:  VercelPoolClient) {
     try {
         const createTable = await client.sql`
        CREATE TYPE measuring_unit AS ENUM ('OUNCE', 'MILLILITER', 'LITRE');
@@ -62,7 +62,7 @@ async function seedMeasuringUnitEnum(client) {
     }
 }
 
-async function seedWaterInTake(client) {
+async function seedWaterInTake(client:  VercelPoolClient) {
     try {
         const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS water_in_take (
@@ -81,9 +81,6 @@ async function seedWaterInTake(client) {
       );
     `;
         console.log(`Created "water_in_take" table`);
-
-        console.log(`Seeded ${insertedUsers.length} users`);
-
         return createTable;
     } catch (error) {
         console.error('Error seeding WaterInTake:', error);
@@ -91,7 +88,7 @@ async function seedWaterInTake(client) {
     }
 }
 
-async function deleteEnum(client) {
+async function deleteEnum(client:  VercelPoolClient) {
     try {
         const deleteEnums = await client.sql`
         DROP TYPE IF Exists measuring_unit CASCADE;
@@ -104,7 +101,7 @@ async function deleteEnum(client) {
     }
 }
 
-async function deleteAll(client) {
+async function deleteAll(client:  VercelPoolClient) {
     try {
         const deleteTables = await client.sql`
            DROP table If Exists users;
@@ -127,7 +124,7 @@ async function main() {
     await seedMeasuringUnitEnum(client);
     await seedWaterInTake(client)
 
-    await client.end();
+    await client.release();
 }
 
 main().catch((err) => {

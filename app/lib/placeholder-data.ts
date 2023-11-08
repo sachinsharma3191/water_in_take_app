@@ -1,13 +1,13 @@
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
 // https://nextjs.org/learn/dashboard-app/fetching-data
 
-import {v4 as uuid} from 'uuid';
+import * as uuid from "uuid";
 import {MeasuringUnit} from "./definitions";
-import {subtractCurrentDateTimeWithTimeZoneInDateTimeFormat} from "@/app/lib/util";
+import {subtractCurrentDateTimeWithTimeZoneInDateTimeFormat} from "./util";
 
-const user_id: string = uuid();
+const user_id = uuid.v4();
 
-const users = [
+export const users = [
     {
         id: user_id,
         name: 'SACHIN SHARMA',
@@ -16,7 +16,7 @@ const users = [
     },
 ];
 
-const water_in_take = [
+export const water_in_take = [
     {
         user_id: user_id,
         measuring_unit: MeasuringUnit.MILLILITER,
@@ -39,9 +39,3 @@ const water_in_take = [
         added_date: subtractCurrentDateTimeWithTimeZoneInDateTimeFormat(1, 'days', 'America/Los_Angeles'),
     }
 ]
-
-
-module.exports = {
-    users,
-    water_in_take
-};
