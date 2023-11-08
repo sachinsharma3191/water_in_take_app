@@ -38,6 +38,5 @@
     "tailwindcss": "^3.3.5",
     "typescript": "^5",
     "ts-node": "latest"
-  },
-  "type": "module"
+  }
 }
