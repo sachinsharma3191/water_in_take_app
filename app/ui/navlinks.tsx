@@ -19,12 +19,12 @@ const links = [
     },
     {
         name: 'Add Water In Take',
-        href: '/water_in_take/add',
+        href: '/water_intake/add',
         icon: DocumentDuplicateIcon,
     },
     {
         name: 'Water In Take History',
-        href: '/water_in_take/history',
+        href: '/water_intake/history',
         icon: UserGroupIcon
     },
 ];
