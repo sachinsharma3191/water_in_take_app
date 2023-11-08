@@ -4,11 +4,11 @@ import {unitOfTime} from "moment/moment";
 const DATE_TIME_FORMAT = "DD-MM-YYYY h:mm:ss A";
 
 
- function convertCurrentUTCTimeToAnotherTimeZone(timezone: string) {
+function convertCurrentUTCTimeToAnotherTimeZone(timezone: string) {
     return convertTimeToTimeZone(currentTimeInUTC(), timezone)
 }
 
- function convertCurrentUTCTimeToAnotherTimeZoneInDateTimeFormat(timezone: string): string {
+function convertCurrentUTCTimeToAnotherTimeZoneInDateTimeFormat(timezone: string): string {
     return convertCurrentUTCTimeToAnotherTimeZone(timezone).format(DATE_TIME_FORMAT)
 }
 

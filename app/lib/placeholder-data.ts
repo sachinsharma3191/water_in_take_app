@@ -1,11 +1,11 @@
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
 // https://nextjs.org/learn/dashboard-app/fetching-data
 
-import { v4 as uuid } from 'uuid';
+import {v4 as uuid} from 'uuid';
 import {MeasuringUnit} from "./definitions";
 import {subtractCurrentDateTimeWithTimeZoneInDateTimeFormat} from "@/app/lib/util";
 
-const user_id: string = uuid    ();
+const user_id: string = uuid();
 
 const users = [
     {

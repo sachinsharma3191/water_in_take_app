@@ -98,11 +98,12 @@ async function deleteEnum(client) {
     `;
         console.log(`Deleted Enums `);
         return deleteEnums;
-    }catch(error) {
+    } catch (error) {
         console.error('Error deleting Enum:', error);
         throw error;
     }
 }
+
 async function deleteAll(client) {
     try {
         const deleteTables = await client.sql`
