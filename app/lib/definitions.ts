@@ -15,6 +15,7 @@ export type WaterIntakeHistory = {
     quantity_of_water_intake: number;
     quantity_of_measuring_unit: number;
     total_water_in_take: number;
+    added_for: string;
 }
 
 

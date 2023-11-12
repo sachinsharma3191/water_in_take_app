@@ -7,10 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "node -r ./scripts/seed.ts"
+    "seed": "ts-node -r ./scripts/seed.ts"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@heroicons/react": "latest",
+    "@mui/material": "^5.14.17",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.5",
+    "@mui/x-data-grid": "^6.18.1",
     "@vercel/postgres": "^0.5.1",
     "bcrypt": "^5.1.1",
     "clsx": "latest",
@@ -21,6 +26,7 @@
     "next-auth": "latest",
     "react": "^18",
     "react-dom": "^18",
+    "styled-components": "^6.1.1",
     "typescript": "latest",
     "uuid": "^9.0.1",
     "zod": "latest"
@@ -36,7 +42,7 @@
     "eslint-config-next": "14.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5",
-    "ts-node": "latest"
+    "ts-node": "latest",
+    "typescript": "^5"
   }
 }
