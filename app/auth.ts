@@ -1,5 +1,5 @@
-import NextAuth from 'next-auth'
+import NextAuth from "next-auth";
 
-export const {auth, signIn, signOut} = NextAuth({
-    providers: [],
+export const { auth, signIn, signOut } = NextAuth({
+  providers: [],
 });
