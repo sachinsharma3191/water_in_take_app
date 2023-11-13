@@ -18,6 +18,11 @@ export type WaterIntakeHistory = {
   added_for: string;
 };
 
+export type EnumData = {
+  name: string;
+  value: string;
+};
+
 export type WaterIntake = {
   user_id: string;
   measuring_unit: MeasuringUnit;
