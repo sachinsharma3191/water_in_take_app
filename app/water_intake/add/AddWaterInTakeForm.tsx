@@ -30,7 +30,7 @@
             const value = event.target.value;
             if (!_.isUndefined(value) || !_.isNull(value) || !_.isEmpty(value)) {
                 if (!_.isNumber(value)) {
-                    setHelperText(' ');
+                    setHelperText('Please provide number');
                     setError(true);
                 } else {
                     setQuantityOfMeasuringUnit(parseInt(value));
@@ -40,14 +40,20 @@
 
         const handleQuantityOfWaterInTakeChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
             const value = event.target.value;
+            console.log(value);
             if (!_.isUndefined(value) || !_.isNull(value) || !_.isEmpty(value)) {
                 if (!_.isNumber(value)) {
-                    setHelperText(' ');
+                    setHelperText('Please provide number');
                     setError(true);
                 } else {
                     setQuantityOfWaterInTake(parseInt(value));
                 }
             }
+        }
+
+        const handleFocus = () => {
+            setHelperText('');
+            setError(false);
         }
 
         return (
@@ -77,6 +83,7 @@
                         <TextField id="outlined-basic"
                                    label="Quantity of Measuring Unit"
                                    variant="outlined"
+                                   onFocus={handleFocus}
                                    onChange={handleQuantityOfMeasuringUnitChange}
                                    value={quantityOfMeasuringUnit}/>
                     </FormControl>
@@ -84,6 +91,7 @@
                         <TextField id="outlined-basic"
                                    label="Quantity of Water In Take"
                                    variant="outlined"
+                                   onFocus={handleFocus}
                                    onChange={handleQuantityOfWaterInTakeChange}
                                    value={quantityOfWaterInTake}/>
                         {
@@ -93,7 +101,6 @@
                                 : null
                         }
                     </FormControl>
-
                 </Box>
             </>
         );
